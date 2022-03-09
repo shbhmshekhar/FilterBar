@@ -1,0 +1,117 @@
+$checkbox-size: 1.25rem;
+$checkbox-border: #767677;
+$checkbox-selected: #000; // Primary colour
+$country-icon-size: 0.938rem;
+$option-font-size: 0.875rem;
+$filter-label-font-size: 0.75rem;
+$filter-label-font-size: 0.75rem;
+$primary-box-bg-color: #fafafa;
+
+.filter-bar {
+  position: relative;
+  // width: 1260px;
+  display: flex;
+  border-top: 1px solid rgb(223, 220, 220);
+  border-bottom: 1px solid rgb(223, 220, 220);
+  height: 2.625rem;
+
+  .filter-bar__name {
+    font-family: sans-serif;
+    font-size: $filter-label-font-size;
+    label {
+      font-family: sans-serif;
+      font-size: $option-font-size;
+      font-weight: 400;
+      // color:red
+    }
+    .bold {
+      font-weight: bold;
+    }
+  }
+  .filter__option {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+
+    label {
+      position: relative;
+      cursor: pointer;
+      line-height: $checkbox-size;
+      padding-left: 1.875rem;
+    }
+    .filter__name {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      .filter__checkmark {
+        position: absolute;
+        // top: 0;
+        bottom: 0;
+        left: 0;
+        height: $checkbox-size;
+        width: $checkbox-size;
+        background-color: $primary-box-bg-color;
+        border: 2px solid $checkbox-border;
+        /* Create the checkmark/indicator (hidden when not checked) */
+        &:after {
+          content: '';
+          position: absolute;
+          display: none;
+        }
+        /* Style the checkmark/indicator */
+        @at-root &:after {
+          left: 0.25rem;
+          top: 0px;
+          width: 0.313rem;
+          height: 0.625rem;
+          border: solid white;
+          border-width: 0 0.188rem 0.188rem 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+      &:hover input ~ .filter__checkmark {
+        background-color: #ccc;
+      }
+      input:checked ~ .filter__checkmark {
+        background-color: #000;
+        border: 2px solid #000;
+      }
+      /* Show the checkmark when checked */
+      input:checked ~ .filter__checkmark:after {
+        display: block;
+      }
+    }
+
+    .filter__country-code {
+      height: $country-icon-size;
+      width: $country-icon-size;
+      margin-top: 0.188rem;
+    }
+    .filter__count {
+      color: rgb(87, 86, 86);
+      padding-left: $checkbox-size - 10;
+      font-size: $option-font-size;
+    }
+  }
+  .filter-bar__time {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5rem;
+    font-size: $filter-label-font-size;
+  }
+}
