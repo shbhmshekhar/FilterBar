@@ -1,0 +1,55 @@
+$primary-text-color: black;
+$primary-box-bg-color: grey;
+$secondary-font-family: sans-serif;
+$primary-border-color: grey;
+$secondary-text-color: black;
+$primary-bg-color: #fafafa;
+
+.filter__display {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 0.625rem;
+  top: 100%;
+  color: $primary-text-color;
+  .filter__values {
+    padding: 0.5rem 0.5rem 0.3rem 0.5rem;
+    margin: 0 0.55rem 0.55rem 0;
+    font-size: 0.75rem;
+    background-color: $primary-box-bg-color;
+    user-select: none;
+    font-family: $secondary-font-family;
+    display: flex;
+    align-items: center;
+    transition: fill 0.5s ease-in-out;
+    &:hover {
+      background-color: $primary-border-color;
+    }
+
+    .filter__remove {
+      all: unset;
+      margin-left: 0.3rem;
+      color: black;
+      cursor: pointer;
+      font-size: 0.438rem;
+      margin-bottom: 0.125rem;
+    }
+  }
+
+  .filter__clear {
+    background: none;
+    border: none;
+    height: 1.5rem;
+    font-size: 0.625rem;
+    width: 3.25rem;
+    color: $primary-text-color;
+    font-family: $secondary-font-family;
+    padding-top: 0.125rem;
+
+    &:hover {
+      background-color: $primary-bg-color;
+      color: $secondary-text-color;
+      text-decoration: underline;
+    }
+  }
+}

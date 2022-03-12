@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 // import { components } from 'react-select';
 import style from './FilterBar.module.scss';
-import Filter from '../Filter';
+import Filter from '../Filter/Filter';
 // import SeasonFilter from '../season-filter/SeasonFilter';/
-import SelectedFilters from '../selected-filters/SelectedFilters';
+import SelectedFilters from '../selected-filter/SelectedFilters';
 // import { GlFlag } from '@adl/component-flag';
 // import { useDispatch } from 'react-redux';
 import DropdownIndicator from './DropdownIndicator';
@@ -334,14 +334,14 @@ const FilterBar = (props) => {
     <>
       <div className={style['filter-bar']}>
         {filterBarData.map((filterItem) => {
-          console.log(filterBarData);
+          console.log(filterItem);
           return (
             <Filter
               key={filterItem.id}
               isMulti
               isMenuOpen
-              placeholder={filterItem.labelName}
-              options={filterItem.filter}
+              placeholder={filterItem.label}
+              options={filterItem.filters}
               value={selectedFilters}
               closeMenuOnSelect={false}
               hideSelectedOptions={false}
